@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+<body>
+    <form method="post" id="form-login">
+        <label for="iptEmail">Email:</label><br>
+        <input id="iptEmail" type="email" name="email" placeholder="Insira aqui o seu email." required><br> 
+        
+        <label for="iptPassword">Password:  </label><br>
+        <input id="iptPassword" type="password" name="password" placeholder="Insira aqui a sua senha." required><br><br>
+      
+        <input type="submit">
+    </form>
+
+    <script>
+
+        
+        let listaLogins = JSON.parse(localStorage.getItem('lista-logins')) || [];
+        const form = document.getElementById('form-login');
+
+        form.addEventListener('submit', handleSubmit);
+
+        function handleSubmit (event) {
+            event.preventDefault();
+
+            const iptEmail    = document.getElementById('iptEmail');
+            const iptPassword = document.getElementById('iptPassword');
+
+            const login = {
+                email: iptEmail.value,
+                password: iptPassword.value,
+            }
+
+            listaLogins.push(login);
+            localStorage.setItem('lista-logins', JSON.stringify(listaLogins));
+            
+            alert('Salvo com sucesso!');
+            iptEmail.value = '';
+            iptPassword.value = '';
+        }
+    </script>
+</body>
+</html>

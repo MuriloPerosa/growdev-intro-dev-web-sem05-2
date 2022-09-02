@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 - form</title>
+</head>
+<body>
+    <!-- <form method="get"> -->
+    <form action="/login" method="post">
+        <label for="iptEmail">Email:</label><br>
+        <input id="iptEmail" type="email" name="email" placeholder="Insira aqui o seu email." required><br> 
+        <!-- disabled = desabilita o input-->
+        <!-- readonly = apenas para leitura o input-->
+        
+        <label for="iptPassword">Password:  </label><br>
+        <input id="iptPassword" type="password" name="password" placeholder="Insira aqui a sua senha." required><br><br>
+      
+        <input type="submit">
+    </form>
+    <br>
+    <form action="/search" method="get">
+        <input 
+            type="text" 
+            name="pesquisa" 
+            placeholder="Insira o termo a pesquisar."
+            value="Growdev" 
+            disabled readonly   
+            >
+        <input type="submit">
+    </form>
+    <script>
+        // ?exemplo=Murilo&idade=24
+        // ?param1=valor1&param2=valor2&param3=valor3
+    </script>
+</body>
+</html>
